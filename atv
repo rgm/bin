@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+SRC=$1
+DST=${1%.*}.m4v
+~/bin/handbrake --preset="Apple TV 2" -i "$SRC" -o "$DST"

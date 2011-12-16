@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ -z "$1" ]; then
+  echo "usage: $0 <gem_name>"
+else
+  gem=`ls -1td $GEM_HOME/gems/$1*`
+  mvim "$gem/"
+fi

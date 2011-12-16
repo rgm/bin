@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+require 'dnssd'
+
+Thread.abort_on_exception = true
+trap 'INT' do exit end
+trap 'TERM' do exit end
+
+browser = DNSSD::Service.new
+services = {}
+
+puts "Browsing for afpovertcp" # from http://www.dns-sd.org/ServiceTypes.html, could also use ssh or rfb
+puts
+
+browser.browse '_afpovertcp._tcp' do |reply|
+  services[reply.fullname] = reply
+  services.each do |_,service|
+    p service
+  end
+  services.clear
+end

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+COUNT=`find ~/mail/actonostry/ -name "*2," | wc -l`
+echo "$COUNT unread messages in YHS"
